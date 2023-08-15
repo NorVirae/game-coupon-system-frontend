@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: rgb(184, 164, 52);
+  --background-start-rgb: rgb(184, 164, 52);
+  --background-end-rgb: rgb(184, 164, 52);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: rgb(184, 164, 52);
+    --background-start-rgb: rgb(184, 164, 52);
+    --background-end-rgb: rgb(184, 164, 52);
   }
 }
 
@@ -21,7 +21,80 @@ body {
   background: linear-gradient(
       to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
+      var(--background-end-rgb)
     )
-    rgb(var(--background-start-rgb));
+    var(--background-start-rgb);
+    color: white;
+}
+
+
+.eoi-coupon-system{
+  width: 100vw;
+  height: 100vh;
+  /* background-color: aliceblue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.eoi-body-inner{
+  display: flex;
+  flex-direction: column;
+}
+
+.eoi-gold-card{
+  display: flex;
+  flex-direction: column;
+  border: .1rem solid rgba(255, 217, 0, 0.5);
+  padding: .5rem;
+  border-radius: 5%;
+  width: 30vw;
+}
+
+.eoi-gold-card-img-container{
+  width: 100%;
+  height: 100%;
+}
+
+.eoi-gold-card-img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10%;
+}
+
+.eoi-gold-card-body{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.eoi-gold-card-body h3{
+  font-size: 2rem;
+}
+
+.eoi-gold-action-btn{
+  background-color: rgba(255, 217, 0, 0.308);
+  padding: 1.4rem 1rem;
+}
+
+.eoi-text-header-container{
+  text-align: center;
+  border: .2rem solid gold;
+  padding: .2rem;
+}
+
+.eoi-text-header-container h2{
+  font-size: 2rem;
+}
+
+.eoi-text-header-container h1{
+  font-size: 1rem;
+  font-weight: bolder;
+}
+
+.coupon-container{
+  border: .1rem dashed gold;
+  padding: .5rem;
 }
