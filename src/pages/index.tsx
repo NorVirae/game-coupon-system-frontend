@@ -17,7 +17,7 @@ export default function Home() {
       </div>
       
         <div className='coupon-container'>
-          {coupon && "Coupon Will appear here"}
+          {coupon ?coupon: "Coupon Will appear here"}
         </div>
       <div className='eoi-body-inner'>
         <EoiGoldCard coupon={coupon} setCoupon={setCoupon}/>
