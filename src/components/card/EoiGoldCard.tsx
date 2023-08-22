@@ -1,12 +1,15 @@
+import purchaseVoucher from "@/pages/api/api";
 import { Dispatch, SetStateAction, useState } from "react";
 import { PaystackButton } from "react-paystack";
 
 
 interface GoldCardInterface {
     coupon:string,
-    setCoupon:Dispatch<SetStateAction<string>>
+    setCoupon:Dispatch<SetStateAction<string>>,
+    setIsLoading: Dispatch<SetStateAction<boolean>>
 }
-export default function EoiGoldCard({coupon, setCoupon}:GoldCardInterface){
+export default function EoiGoldCard({coupon, setCoupon, setIsLoading}:GoldCardInterface){
+    
     return (
         <div className="eoi-gold-card">
             <div className="eoi-gold-card-img-container">
@@ -19,7 +22,16 @@ export default function EoiGoldCard({coupon, setCoupon}:GoldCardInterface){
                     amount={400000} text="Buy Gold Coupon" 
                     className="eoi-gold-action-btn"
                     onSuccess={() => {
+                        setIsLoading(true)
                         setCoupon("3453-5433-432")
+                        purchaseVoucher().then(res => {
+                            setIsLoading(false)
+                            setCoupon(res.VoucherCode)
+
+                        }).catch(err => {
+                            setIsLoading(false)
+
+                        });
                     }} />
                 
             </div>

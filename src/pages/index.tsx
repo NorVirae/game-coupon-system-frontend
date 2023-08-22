@@ -7,6 +7,8 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [coupon, setCoupon] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+
 
   return (
     <div className='eoi-coupon-system'>
@@ -17,10 +19,10 @@ export default function Home() {
       </div>
       
         <div className='coupon-container'>
-          {coupon ?coupon: "Coupon Will appear here"}
+          {coupon ?isLoading?"loading...":coupon: "Coupon Will appear here"}
         </div>
       <div className='eoi-body-inner'>
-        <EoiGoldCard coupon={coupon} setCoupon={setCoupon}/>
+        <EoiGoldCard coupon={coupon} setCoupon={setCoupon} setIsLoading={setIsLoading}/>
       </div>
     </div>
   )
